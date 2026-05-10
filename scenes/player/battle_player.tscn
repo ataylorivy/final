@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b7w6g7ny6xw7"]
+
+[ext_resource type="Script" uid="uid://5vx2c25kif57" path="res://scripts/player/battle_player.gd" id="1_2ug3i"]
+[ext_resource type="AnimationLibrary" uid="uid://dq6lr82rtsj12" path="res://resources/player/player_anims.res" id="3_2ug3i"]
+[ext_resource type="PackedScene" uid="uid://cserglkly123o" path="res://scenes/hp_bar.tscn" id="3_w2ey8"]
+
+[node name="battle_player" type="Node2D" unique_id=316525426]
+script = ExtResource("1_2ug3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=414439661]
+scale = Vector2(3, 3)
+
+[node name="Control" type="Control" parent="." unique_id=260829553]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1258979640]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="name" type="Label" parent="Control/PanelContainer" unique_id=1497819291]
+layout_mode = 2
+text = "you"
+
+[node name="hp_bar" parent="Control" unique_id=1952528891 instance=ExtResource("3_w2ey8")]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -34.0
+offset_right = 116.0
+offset_bottom = -11.0
+
+[node name="attack_cd" type="Timer" parent="." unique_id=2118207047]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=109969491]
+libraries/player_anims = ExtResource("3_2ug3i")

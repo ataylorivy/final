@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bhagt0636rjwv"]
+
+[node name="Hp_display" type="ProgressBar" unique_id=1395446609]
+offset_right = 650.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="." unique_id=155177121]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 15.0
+offset_right = 349.0
+offset_bottom = 38.0
+text = "Hp: 10"

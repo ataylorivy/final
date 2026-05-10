@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dtw5nx4nrd4od"]
+
+[ext_resource type="Script" uid="uid://be5bkf2ht3sb2" path="res://scripts/player/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://03br8mmh5ygd" path="res://assets/player/wizard.png" id="2_dovo2"]
+[ext_resource type="AnimationLibrary" uid="uid://dq6lr82rtsj12" path="res://resources/player/player_anims.res" id="3_gmlin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvxji"]
+_data = {
+&"RESET": SubResource("Animation_gmlin")
+}
+
+[node name="player" type="CharacterBody2D" unique_id=751035233 groups=["player"]]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1116794299]
+texture = ExtResource("2_dovo2")
+hframes = 12
+vframes = 6
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1125837854]
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=234694922]
+zoom = Vector2(5, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1652982929]
+libraries/ = SubResource("AnimationLibrary_lvxji")
+libraries/player = ExtResource("3_gmlin")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cserglkly123o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqw0a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybxu1"]
+bg_color = Color(0, 0.727019, 0.13576534, 1)
+
+[node name="hp_bar" type="ProgressBar" unique_id=1952528891]
+offset_right = 152.0
+offset_bottom = 23.0
+pivot_offset = Vector2(353, -71)
+theme_override_styles/background = SubResource("StyleBoxFlat_eqw0a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ybxu1")
+max_value = 10.0
+step = 1.0
+value = 3.0

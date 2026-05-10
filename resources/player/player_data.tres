@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://dr2w7eo67q2s0"]
+
+[ext_resource type="AnimationLibrary" uid="uid://dq6lr82rtsj12" path="res://resources/player/player_anims.res" id="1_ijalw"]
+[ext_resource type="Script" uid="uid://b4i7ekykcp8d4" path="res://scripts/player/player_data.gd" id="1_ldidj"]
+[ext_resource type="Texture2D" uid="uid://03br8mmh5ygd" path="res://assets/player/wizard.png" id="3_0sl0g"]
+
+[resource]
+script = ExtResource("1_ldidj")
+name = "placeholder"
+skin = ExtResource("3_0sl0g")
+hframes = 12
+vframes = 6
+anim_library = ExtResource("1_ijalw")
+sprint_mult = 1.5
+speed = 3000.0
+max_hp = 10
+current_hp = 10
+mp = 5
+base_damage = 2
+react_speed = 3.0
+metadata/_custom_type_script = "uid://b4i7ekykcp8d4"

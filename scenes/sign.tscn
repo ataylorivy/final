@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bves25omln78y"]
+
+[ext_resource type="Script" uid="uid://cmxd0mjwjoxlb" path="res://scripts/sign.gd" id="1_w2mlg"]
+[ext_resource type="Texture2D" uid="uid://dkbh688ct6i7c" path="res://assets/sign.png" id="2_q3tny"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3n43a"]
+radius = 32.0
+
+[node name="sign" type="Node2D" unique_id=1571765185]
+script = ExtResource("1_w2mlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=249805243]
+texture = ExtResource("2_q3tny")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=103048108]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=357471203]
+shape = SubResource("CircleShape2D_3n43a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1872748944]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = 10.0
+offset_right = 170.99998
+offset_bottom = 37.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+bbcode_enabled = true
+text = "[center]press e to interact[/center]"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=42822312]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 76.210526
+offset_bottom = 39.36842
+scale = Vector2(0.19, 0.19)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2062377784]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer" unique_id=9348128]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]ball not here[/center]"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

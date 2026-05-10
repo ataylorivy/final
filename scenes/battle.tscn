@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://j8ac1spl0vnj"]
+
+[ext_resource type="PackedScene" uid="uid://cbbcqkj6km6p7" path="res://scenes/enemies/battle_enemy.tscn" id="1_oxp8w"]
+[ext_resource type="Script" uid="uid://b4tk7ks1qaxrj" path="res://scripts/battle.gd" id="1_p1qf1"]
+[ext_resource type="PackedScene" uid="uid://b7w6g7ny6xw7" path="res://scenes/player/battle_player.tscn" id="2_7sfm4"]
+[ext_resource type="AudioStream" uid="uid://g8lkyci6p2lc" path="res://assets/battle.wav" id="4_a12nh"]
+
+[node name="Battle" type="Node2D" unique_id=1956164133]
+script = ExtResource("1_p1qf1")
+
+[node name="Control" type="Control" parent="." unique_id=920918844]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 646.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1488970397]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 646.0
+color = Color(2.6471912e-07, 0.40531608, 0.40549895, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1503083352]
+layout_mode = 0
+offset_top = 427.0
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.37559864, 0.83658516, 0.2497986, 1)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control" unique_id=511793425]
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 110.0
+
+[node name="attack" type="Button" parent="Control/HFlowContainer" unique_id=137205678]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "attack"
+
+[node name="special" type="Button" parent="Control/HFlowContainer" unique_id=1312431142]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "special"
+
+[node name="items" type="Button" parent="Control/HFlowContainer" unique_id=1556921244]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "items"
+
+[node name="pass" type="Button" parent="Control/HFlowContainer" unique_id=2026193042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "pass
+"
+
+[node name="damage_reader" type="RichTextLabel" parent="Control" unique_id=1905876061]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -309.0
+offset_right = 309.0
+offset_bottom = 40.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center][/center]"
+
+[node name="Camera2D" type="Camera2D" parent="Control" unique_id=212813898]
+position = Vector2(576.00006, 324)
+scale = Vector2(-2.6399987, 1)
+
+[node name="Timer" type="Timer" parent="Control" unique_id=57468997]
+one_shot = true
+
+[node name="startpos" type="Node2D" parent="." unique_id=1132043647]
+
+[node name="player" type="Node2D" parent="startpos" unique_id=144071207]
+position = Vector2(78, 428)
+
+[node name="Marker2D" type="Marker2D" parent="startpos/player" unique_id=745274188]
+
+[node name="enemy" type="Node2D" parent="startpos" unique_id=1041798229]
+position = Vector2(1038, 427)
+
+[node name="Marker2D" type="Marker2D" parent="startpos/enemy" unique_id=246473164]
+
+[node name="battle_player" parent="." unique_id=316525426 instance=ExtResource("2_7sfm4")]
+
+[node name="battle_enemy" parent="." unique_id=1273208298 instance=ExtResource("1_oxp8w")]
+
+[node name="battle_theme" type="AudioStreamPlayer" parent="." unique_id=194699360]
+stream = ExtResource("4_a12nh")
+
+[connection signal="pressed" from="Control/HFlowContainer/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Control/HFlowContainer/special" to="." method="_on_special_pressed"]
+[connection signal="pressed" from="Control/HFlowContainer/items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="Control/HFlowContainer/pass" to="." method="_on_pass_pressed"]
+[connection signal="dead" from="battle_player" to="." method="_on_battle_player_dead"]
+[connection signal="dead" from="battle_enemy" to="." method="_on_battle_enemy_dead"]
+[connection signal="ready_attack" from="battle_enemy" to="." method="_on_battle_enemy_ready_attack"]

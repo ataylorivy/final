@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="enemy_data" format=3 uid="uid://8e5gh14pohlf"]
+
+[ext_resource type="AnimationLibrary" uid="uid://d2ofjd3s0bisj" path="res://test_and_debug_stuff/Test2_anims.res" id="1_6tsha"]
+[ext_resource type="Script" uid="uid://chehlg0deelek" path="res://scripts/enemy/enemy_data.gd" id="2_00ycp"]
+[ext_resource type="Texture2D" uid="uid://61esa2wlgdqu" path="res://test_and_debug_stuff/icon.svg" id="3_fdkyx"]
+
+[resource]
+script = ExtResource("2_00ycp")
+name = "testset2"
+skin = ExtResource("3_fdkyx")
+anim_library = ExtResource("1_6tsha")
+Vframes = 1
+Hframes = 1
+health = 25.0
+battle_speed = 3.0
+speed = 5.0
+metadata/_custom_type_script = "uid://chehlg0deelek"

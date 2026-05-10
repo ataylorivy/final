@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="enemy_data" format=3 uid="uid://c2jqvjeyxhfxf"]
+
+[ext_resource type="AnimationLibrary" uid="uid://cxeknyh1nwfa6" path="res://test_and_debug_stuff/Test_anims.res" id="1_001a8"]
+[ext_resource type="Script" uid="uid://chehlg0deelek" path="res://scripts/enemy/enemy_data.gd" id="1_mcxgt"]
+[ext_resource type="AnimationLibrary" uid="uid://ddpv2ca1vbof6" path="res://resources/enemies/slime_battle_anims.res" id="2_4m2w8"]
+[ext_resource type="Texture2D" uid="uid://61esa2wlgdqu" path="res://test_and_debug_stuff/icon.svg" id="3_71b43"]
+
+[resource]
+script = ExtResource("1_mcxgt")
+name = "tesset1"
+skin = ExtResource("3_71b43")
+anim_library = ExtResource("1_001a8")
+battle_anim_library = ExtResource("2_4m2w8")
+Vframes = 1
+Hframes = 1
+health = 2.0
+speed = 25.0
+metadata/_custom_type_script = "uid://chehlg0deelek"

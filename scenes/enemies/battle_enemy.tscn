@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cbbcqkj6km6p7"]
+
+[ext_resource type="Script" uid="uid://cupblryijsnhh" path="res://scripts/battle_enemy.gd" id="1_j6gob"]
+[ext_resource type="PackedScene" uid="uid://cserglkly123o" path="res://scenes/hp_bar.tscn" id="3_hifx2"]
+[ext_resource type="AnimationLibrary" uid="uid://ddpv2ca1vbof6" path="res://resources/enemies/slime_battle_anims.res" id="3_iqf8c"]
+
+[sub_resource type="Animation" id="Animation_iqf8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2134j"]
+_data = {
+&"RESET": SubResource("Animation_iqf8c")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqf8c"]
+bg_color = Color(0.45585096, 0.4545223, 0.4509011, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hifx2"]
+bg_color = Color(0.01461086, 0.587382, 0.6271621, 1)
+
+[node name="battle_enemy" type="Node2D" unique_id=1273208298]
+script = ExtResource("1_j6gob")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=370860538]
+scale = Vector2(3, 3)
+hframes = 5
+vframes = 5
+frame = 24
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1523880505]
+libraries/ = SubResource("AnimationLibrary_2134j")
+libraries/slime_battle = ExtResource("3_iqf8c")
+
+[node name="ready_to_attack" type="Timer" parent="." unique_id=1996603483]
+one_shot = true
+
+[node name="Control" type="Control" parent="." unique_id=954756719]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1865323743]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer" unique_id=1648035006]
+layout_mode = 2
+
+[node name="name" type="Label" parent="Control/PanelContainer/MarginContainer" unique_id=1869135730]
+layout_mode = 2
+
+[node name="hp_bar" parent="Control" unique_id=1952528891 instance=ExtResource("3_hifx2")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -74.0
+offset_right = 76.0
+offset_bottom = -51.0
+grow_horizontal = 2
+
+[node name="attack_meter" type="ProgressBar" parent="Control" unique_id=1361011486]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -83.0
+offset_right = 32.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_iqf8c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hifx2")
+max_value = 3.0
+show_percentage = false
+
+[connection signal="timeout" from="ready_to_attack" to="." method="_on_ready_to_attack_timeout"]
